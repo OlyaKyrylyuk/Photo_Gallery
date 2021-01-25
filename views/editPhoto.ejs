@@ -1,0 +1,9 @@
+<h2>Edit post</h2>
+<form action="/edit/<%= photo.id%>?_method=PUT" method = "POST" enctype="multipart/form-data">
+    <label>Select Image</label>
+    <input type="file" name="image">
+    <label>Category</label>
+    <input type="text" name="category" value = "<%= photo.category%>">
+    <a href="/">Cancel</a>
+    <button type="submit">Edit</button>
+</form>

@@ -1,0 +1,29 @@
+<div class = "center-block">
+<form action = "/search?_method=GET" method = "POST">
+<label>Category</label>
+<input type="text" name="search">
+<button type="submit">Search</button>
+<a href="/">Cancel</a>
+</form>
+</div>
+
+<div class="container">
+    <div class="row">
+  <% photos.forEach(function(image) { %>
+  <div class="col-sm">
+          <img  src="data:image/<%=image.img.contentType%>;base64,
+               <%=image.img.data.toString('base64')%>">
+          <div class="center-block">
+            <h3><%= image.category %></h3>
+            <div class="row">
+              
+              <div class="col-sm"><a class="btn btn-success" href = "/edit/<%= image.id %>">Edit</a></div>
+              <div class="col-sm"><form method="POST" action="/delete/<%= image.id %>?_method=DELETE">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form></div>
+              </div>
+          </div>
+  </div>
+  <% }) %>
+</div>
+</div>
